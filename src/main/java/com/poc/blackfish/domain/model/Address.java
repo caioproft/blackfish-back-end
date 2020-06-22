@@ -1,5 +1,8 @@
 package com.poc.blackfish.domain.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -8,6 +11,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_address")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address {
 
     @Id
@@ -44,4 +50,14 @@ public class Address {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    public Address(Long id, String street, int number, String city, String state, String country, String zipcode, User user) {
+        this.id = id;
+        this.street = street;
+        this.number = number;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.zipcode = zipcode;
+        this.user = user;
+    }
 }

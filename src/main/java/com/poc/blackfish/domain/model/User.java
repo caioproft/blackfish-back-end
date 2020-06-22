@@ -1,6 +1,9 @@
 package com.poc.blackfish.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +12,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_user")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -45,4 +51,13 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    public User(Long id, String name, String phone, String email, String cpf, String rg, boolean adm) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.adm = adm;
+    }
 }
