@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -36,6 +37,9 @@ public class User {
     @Column(name = "user_rg")
     private String rg;
 
+    @Column(name = "user_date_of_birth")
+    private LocalDate dateOfBirth;
+
     @Column(name = "user_adm")
     boolean adm;
 
@@ -51,13 +55,15 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public User(Long id, String name, String phone, String email, String cpf, String rg, boolean adm) {
+    public User(Long id, String name, String phone, String email, String cpf, String rg, LocalDate dateOfBirth, boolean adm) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.cpf = cpf;
         this.rg = rg;
+        this.dateOfBirth = dateOfBirth;
         this.adm = adm;
     }
+
 }
