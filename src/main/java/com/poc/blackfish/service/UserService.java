@@ -2,6 +2,7 @@ package com.poc.blackfish.service;
 
 import com.poc.blackfish.domain.dto.UserDTO;
 import com.poc.blackfish.domain.model.User;
+import com.poc.blackfish.exceptions.DuplicateResourceException;
 import com.poc.blackfish.mapper.UserMapper;
 import com.poc.blackfish.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,13 @@ public class UserService {
         }
 
         return userDTOList;
+    }
+
+    public void createUser(UserDTO userDTO) {
+        User user = userMapper.userDtoToUser(userDTO);
+        if(repository.existsByCpf(user.getCpf())){
+            throw new DuplicateResourceException("Usuário já cadastrado");
+        }
+        repository.save(user);
     }
 }

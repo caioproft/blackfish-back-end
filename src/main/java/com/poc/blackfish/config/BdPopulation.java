@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 @Configuration
 public class BdPopulation  implements CommandLineRunner {
@@ -35,5 +36,6 @@ public class BdPopulation  implements CommandLineRunner {
 
         Address address1 = new Address(null, "Av Martinho", 1027, "Araraquara", "São Paulo", "Brasil", "14801070", u1);
         addressRepository.save(address1);
+
     }
 }
