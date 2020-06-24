@@ -31,7 +31,7 @@ public class User {
     @Column(name = "user_email")
     private String email;
 
-    @Column(name = "user_cpf")
+    @Column(name = "user_cpf", length = 11)
     private String cpf;
 
     @Column(name = "user_rg")
