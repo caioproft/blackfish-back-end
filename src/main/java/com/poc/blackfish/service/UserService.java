@@ -1,6 +1,7 @@
 package com.poc.blackfish.service;
 
 import com.poc.blackfish.domain.dto.UserDTO;
+import com.poc.blackfish.domain.model.Address;
 import com.poc.blackfish.domain.model.User;
 import com.poc.blackfish.exceptions.DuplicateResourceException;
 import com.poc.blackfish.exceptions.ResourceNotFound;
